@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<style type="text/css">
+			.bar {
+				position: relative;
+				
+			}
+			
+			.field {
+				margin-bottom: 10px;
+
+			}
+
+			.square {
+				width: 200px;
+				height: 200px;
+				border: solid 1px #333;
+				background-color: rgb(135, 206, 250);
+				margin-top: 10px;
+			}
+
+			button {
+				width: 120px;
+				height: 20px;
+				border: solid 1px black;
+				border-radius: 4px;
+				margin-top: 20px;
+
+
+			}
+
+			input[type="number"] {
+				border: solid 1px #333;
+				border-radius: 4px;
+				box-shadow: inset 0 0 2px 0 #777;
+			}
+
+		</style>
+	</head>
+	<body>
+		<form class="bar">
+			<div class="field">
+				Ширина :
+				<input type="number" id="Width">
+			</div>
+			<div class="field">
+				Высота :
+				<input type="number" id="Height">
+			</div>
+			<button type="button">Случайный цвет</button>
+		</form>
+		<div class="square"></div>
+	</body>
+	<script type="text/javascript">
+		// document.quareSelector(".square").style['background-color'] = "rgb(" + red + "," + green + "," + blue + ")"
+		// $(".square").css("backgroundColor", "rgb(" + red + "," + green + "," + blue + ")")
+
+		var button=document.querySelector("button")
+
+		function getRandomColor(max) {
+			var randomColor=Math.floor(Math.random() * Math.floor(max))
+  			return randomColor;
+		}
+
+		button.addEventListener("click", function () {
+			var width = document.querySelector("#Width"),
+				height = document.querySelector("#Height")
+
+			var red = getRandomColor(255);
+			var green = getRandomColor(255);
+			var blue = getRandomColor(255);
+
+			$(".square").css("backgroundColor", "rgb(" + red + "," + green + "," + blue + ")")
+			$(".square").css("width", width.value +"px")
+			$(".square").css("height", height.value +"px")
+		})
+	</script>
+</html>
